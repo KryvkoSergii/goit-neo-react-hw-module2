@@ -8,12 +8,12 @@ export default function Feedback({
   hasFeedback,
 }) {
   return (
-    <div className={css.feedback}>
+    <div className={css.feedback} hidden={!hasFeedback}>
       <p>Good: {model.good} </p>
       <p>Neutral: {model.neutral} </p>
       <p>Bad: {model.bad} </p>
-      <p hidden={!hasFeedback}>Total: {totalFeedback} </p>
-      <p hidden={!hasFeedback}>Positive: {positiveFeedback}% </p>
+      <p>Total: {totalFeedback} </p>
+      <p>Positive: {positiveFeedback}% </p>
     </div>
   );
 }
