@@ -21,19 +21,18 @@ function App() {
   });
 
   const updateFeedback = (feedbackType) => {
-    let variableName = feedbackType.target.id;
 
-    if (variableName === "good") {
+    if (feedbackType === "good") {
       setFeedbacks({
         ...feedbacks,
         good: feedbacks["good"] + 1,
       });
-    } else if (variableName === "neutral") {
+    } else if (feedbackType === "neutral") {
       setFeedbacks({
         ...feedbacks,
         neutral: feedbacks["neutral"] + 1,
       });
-    } else if (variableName === "bad") {
+    } else if (feedbackType === "bad") {
       setFeedbacks({
         ...feedbacks,
         bad: feedbacks["bad"] + 1,
@@ -71,7 +70,7 @@ function App() {
         positiveFeedback={positiveFeedback}
         hasFeedback={hasFeedback}
       />
-      <Notification hidden={hasFeedback} />
+      {!hasFeedback && <Notification />}
     </>
   );
 }

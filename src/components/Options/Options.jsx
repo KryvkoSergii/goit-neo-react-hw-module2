@@ -7,13 +7,13 @@ export default function Options({
 }) {
   return (
     <div className={css.options}>
-      <button onClick={updateCallback} id="good">
+      <button onClick={() => updateCallback("good")}>
         Good
       </button>
-      <button onClick={updateCallback} id="neutral">
+      <button onClick={() => updateCallback("neutral")}>
         Neutral
       </button>
-      <button onClick={updateCallback} id="bad">
+      <button onClick={() => updateCallback("bad")}>
         Bad
       </button>
       <button onClick={resetCallback} hidden={!hasFeedback}>
