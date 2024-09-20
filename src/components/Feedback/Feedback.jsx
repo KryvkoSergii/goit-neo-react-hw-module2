@@ -4,11 +4,10 @@ import PropTypes from "prop-types";
 export default function Feedback({
   model,
   totalFeedback,
-  positiveFeedback,
-  hasFeedback,
+  positiveFeedback
 }) {
   return (
-    <div className={css.feedback} hidden={!hasFeedback}>
+    <div className={css.feedback}>
       <p>Good: {model.good} </p>
       <p>Neutral: {model.neutral} </p>
       <p>Bad: {model.bad} </p>

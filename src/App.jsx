@@ -21,23 +21,10 @@ function App() {
   });
 
   const updateFeedback = (feedbackType) => {
-
-    if (feedbackType === "good") {
-      setFeedbacks({
-        ...feedbacks,
-        good: feedbacks["good"] + 1,
-      });
-    } else if (feedbackType === "neutral") {
-      setFeedbacks({
-        ...feedbacks,
-        neutral: feedbacks["neutral"] + 1,
-      });
-    } else if (feedbackType === "bad") {
-      setFeedbacks({
-        ...feedbacks,
-        bad: feedbacks["bad"] + 1,
-      });
-    }
+    setFeedbacks({
+      ...feedbacks,
+      [feedbackType]: feedbacks[feedbackType] + 1,
+    });
   };
 
   useEffect(() => {
@@ -64,12 +51,13 @@ function App() {
         resetCallback={resetFeedback}
         hasFeedback={hasFeedback}
       />
-      <Feedback
-        model={feedbacks}
-        totalFeedback={totalFeedback}
-        positiveFeedback={positiveFeedback}
-        hasFeedback={hasFeedback}
-      />
+      {hasFeedback && (
+        <Feedback
+          model={feedbacks}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
+      )}
       {!hasFeedback && <Notification />}
     </>
   );
